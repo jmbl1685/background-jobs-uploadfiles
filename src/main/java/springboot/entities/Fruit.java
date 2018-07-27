@@ -16,8 +16,7 @@ public class Fruit {
     	this.Id = UUID.randomUUID().toString().toUpperCase();
     }
 
-    public Fruit(String Id, String Name, String ImageURL) {
-        this.Id = Id;
+    public Fruit(String Name, String ImageURL) {
         this.Name = Name;
         this.ImageURL = ImageURL;
     }

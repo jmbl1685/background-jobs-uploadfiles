@@ -21,6 +21,11 @@ public class FruitController {
     
 	private static ArrayList<Fruit> FruitList = new ArrayList<>();
 	
+    @GetMapping(produces = APPLICATION_JSON_VALUE, path = "/fruit")
+    public HttpEntity<ArrayList<Fruit>> GetFruits() {
+        return new ResponseEntity<>(FruitList, HttpStatus.OK);
+    }
+    
     @PostMapping(produces = APPLICATION_JSON_VALUE, path = "/fruit")
     public HttpEntity<Fruit> AddFruit(@RequestBody Fruit fruit) {
     	FruitList.add(fruit);
@@ -39,11 +44,6 @@ public class FruitController {
     	 }
     	 
         return new ResponseEntity<>(_fruit, HttpStatus.OK);
-    }
-
-    @GetMapping(produces = APPLICATION_JSON_VALUE, path = "/fruit")
-    public HttpEntity<ArrayList<Fruit>> GetFruits() {
-        return new ResponseEntity<>(FruitList, HttpStatus.OK);
     }
 
     @DeleteMapping(produces = APPLICATION_JSON_VALUE, path = "/fruit/{Id}")
@@ -76,7 +76,7 @@ public class FruitController {
 	   	 }
    	 
 	   	 return new ResponseEntity<>(_fruit, HttpStatus.OK);
-    	
+	   	 
     }
     
 }
